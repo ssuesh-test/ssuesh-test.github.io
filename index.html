@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   body {
     margin: 0;
-    padding: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
+    height: 100vh;
     background: #fff;
   }
-
   .banner {
     position: relative;
     width: 300px;
     height: 250px;
-    cursor: pointer; 
+    cursor: pointer;
     overflow: hidden;
   }
-
   .banner img {
     position: absolute;
     top: 0;
@@ -29,31 +26,32 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    animation: fade 7.6s infinite;
-  }
-
-
-  .banner img:nth-child(1) { animation-delay: 0s; }
-  .banner img:nth-child(2) { animation-delay: 1.6s; }
-  .banner img:nth-child(3) { animation-delay: 4.6s; }
-
-
-  @keyframes fade {
-    0% { opacity: 1; } 
-    21.05% { opacity: 1; }   
-    21.06% { opacity: 0; }  
-    60.53% { opacity: 0; }   
-    60.54% { opacity: 1; }  
-    100% { opacity: 1; } 
+    display: none;
   }
 </style>
 </head>
 <body>
-  <a href="https://www.nipponpaint.com.my/weatherbond-exterior-paint/?utm_source=sinchew&utm_medium=news&utm_campaign=mobile" target="_blank" class="banner">
-    <img src="image1.jpg" alt="Frame 1" />
-    <img src="image2.jpg" alt="Frame 2" />
-    <img src="image3.jpg" alt="Frame 3" />
+  <a href="https://www.nipponpaint.com.my/weatherbond-exterior-paint/?utm_source=sinchew&utm_medium=news&utm_campaign=mobile" target="_blank" class="banner" id="banner">
+    <img src="image1.jpg" alt="Frame 1">
+    <img src="image2.jpg" alt="Frame 2">
+    <img src="image3.jpg" alt="Frame 3">
   </a>
+
+  <script>
+    const frames = document.querySelectorAll('.banner img');
+    const times = [1600, 3000, 3000];
+    let i = 0;
+
+    function nextFrame() {
+      frames.forEach(f => f.style.display = 'none');
+      frames[i].style.display = 'block';
+      setTimeout(() => {
+        i = (i + 1) % frames.length;
+        nextFrame();
+      }, times[i]);
+    }
+
+    nextFrame();
+  </script>
 </body>
 </html>
