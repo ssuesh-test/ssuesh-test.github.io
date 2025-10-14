@@ -9,14 +9,17 @@
     padding: 0;
     height: 100vh;
     display: flex;
-    justify-content: center; /* horizontal center */
-    align-items: center;     /* vertical center */
+    justify-content: center;
+    align-items: center;    
+    background: #fff;
   }
 
   .banner {
     position: relative;
-    width: 300px; /* Change to 320x100, 300x250, etc. */
+    width: 300px;
     height: 250px;
+    cursor: pointer; 
+    overflow: hidden;
   }
 
   .banner img {
@@ -27,32 +30,30 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: fade 9s infinite;
+    animation: fade 7.6s infinite;
   }
 
-  .banner img:nth-child(1) {
-    animation-delay: 0s;
-  }
 
-  .banner img:nth-child(2) {
-    animation-delay: 3s;
-  }
+  .banner img:nth-child(1) { animation-delay: 0s; }
+  .banner img:nth-child(2) { animation-delay: 1.6s; }
+  .banner img:nth-child(3) { animation-delay: 4.6s; }
 
-  .banner img:nth-child(3) {
-    animation-delay: 6s;
-  }
 
   @keyframes fade {
-    0%, 33.33% { opacity: 1; }
-    33.34%, 100% { opacity: 0; }
+    0% { opacity: 1; } 
+    21.05% { opacity: 1; }   
+    21.06% { opacity: 0; }  
+    60.53% { opacity: 0; }   
+    60.54% { opacity: 1; }  
+    100% { opacity: 1; } 
   }
 </style>
 </head>
 <body>
-  <div class="banner">
+  <a href="https://www.nipponpaint.com.my/weatherbond-exterior-paint/?utm_source=sinchew&utm_medium=news&utm_campaign=mobile" target="_blank" class="banner">
     <img src="image1.jpg" alt="Frame 1" />
     <img src="image2.jpg" alt="Frame 2" />
     <img src="image3.jpg" alt="Frame 3" />
-  </div>
+  </a>
 </body>
 </html>
