@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nippon Paint HTML5 Ad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+    }
+
+    #ad-container {
+      width: 970px; 
+      height: 250px;
+      background-color: #f0f0f0;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var clickTag = "https://www.nipponpaint.com.my/spot-less-plus-series/?utm_source=beritaharian&utm_medium=news&utm_campaign=desktop";
+  </script>
+</head>
+<body>
+  <div id="ad-container">
+    <img src="image1.jpg" class="frame" alt="Frame 1">
+    <img src="image2.jpg" class="frame" alt="Frame 2">
+    <img src="image3.jpg" class="frame" alt="Frame 3">
+  </div>
+
+  <script type="text/javascript">
+    document.getElementById('ad-container').addEventListener('click', function() {
+      window.open(clickTag, '_blank');
+    });
+
+    const frames = document.querySelectorAll('.frame');
+    const durations = [2700, 2700, 2700];
+    let current = 0;
+
+    function showNextFrame() {
+      frames.forEach(f => f.style.display = 'none');
+      frames[current].style.display = 'block';
+      setTimeout(() => {
+        current = (current + 1) % frames.length;
+        showNextFrame();
+      }, durations[current]);
+    }
+
+    // Start animation
+    showNextFrame();
+  </script>
+</body>
+</html>
